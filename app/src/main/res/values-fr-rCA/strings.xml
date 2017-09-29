@@ -9,14 +9,13 @@
     <string name="RadioButton">Bouton Radio</string>
     <string name="CheckBox">Case à cocher</string>
     <string name="Switch">Qu\'est-ce que cela fait?</string>
-
     <string name="LoginButton">S\'identifier</string>
-    <string name="dialog_message">
-Voulez-vous terminer cette activité?</string>
+    <string name="dialog_message">Voulez-vous terminer cette activité?</string>
     <string name="dialog_title">Alerte</string>
-    <string name="ok">D\'accord
-</string>
+    <string name="ok">D\'accord</string>
     <string name="cancel">Annuler</string>
     <string name="switchON" id="switchON">Le commutateur est sur</string>
     <string name="switchOFF" id="switchOFF">Le commutateur est éteint</string>
+    <string name="startChat">Démarrer la discussion</string>
+    <string name="send">Envoyer</string>
 </resources>
