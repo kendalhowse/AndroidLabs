@@ -25,14 +25,16 @@ public class LoginActivity extends Activity {
 
         final SharedPreferences sharedPref = getSharedPreferences("DefaultEmail", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPref.edit();
+        final EditText email = findViewById(R.id.editText1);
+        email.setText(sharedPref.getString("Default Email", "email@domain.com" ));
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText email = findViewById(R.id.editText1);
-                editor.putString("Default Email", email.getText() + "");
+                String lastEmail = email.getText().toString();
+                editor.putString("Default Email", lastEmail);
                 editor.commit();
-                String fromFile = sharedPref.getString("Default Email", "email@domain.com");
+
                 Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                 startActivity(intent);
             }
