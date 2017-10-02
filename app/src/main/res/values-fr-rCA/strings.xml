@@ -16,6 +16,7 @@
     <string name="cancel">Annuler</string>
     <string name="switchON" id="switchON">Le commutateur est sur</string>
     <string name="switchOFF" id="switchOFF">Le commutateur est éteint</string>
+    <string name="response">Voici mon repsonse</string>
     <string name="startChat">Démarrer la discussion</string>
     <string name="send">Envoyer</string>
 </resources>

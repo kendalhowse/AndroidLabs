@@ -26,6 +26,7 @@
         <activity android:name=".ListItemsActivity">
 
         </activity>
-    </application>
+        <activity android:name=".ChatWindow">
+        </activity>    </application>
 
 </manifest>

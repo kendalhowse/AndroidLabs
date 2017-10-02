@@ -78,7 +78,7 @@ public class ListItemsActivity extends Activity {
                         .setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent resultIntent = new Intent();
-                                resultIntent.putExtra("Response", "Here is my response");
+                                resultIntent.putExtra("Response", getResources().getString(R.string.response));
                                 setResult(Activity.RESULT_OK, resultIntent);
                                 finish();
                             }

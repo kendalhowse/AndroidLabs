@@ -22,11 +22,13 @@ public class StartActivity extends Activity {
        startChat.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               Log.i(ACTIVITY_NAME, "User clicked Start Chat");
                Intent chatIntent = new Intent(StartActivity.this, ChatWindow.class);
                startActivityForResult(chatIntent, 10);
            }
        });
-        button.setOnClickListener(new View.OnClickListener() {
+
+       button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
