@@ -17,6 +17,15 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
 
        Button button = findViewById(R.id.button);
+       Button startChat = findViewById(R.id.startChat);
+
+       startChat.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent chatIntent = new Intent(StartActivity.this, ChatWindow.class);
+               startActivityForResult(chatIntent, 10);
+           }
+       });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,19 +35,20 @@ public class StartActivity extends Activity {
 
             }
 
-            public void onActivityResult(int requestCode, int responseCode, Intent data){
-                if(requestCode == 10){
-                    Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResult");
-                }
 
-                if(requestCode == Activity.RESULT_OK){
-                    String messagePassed = data.getStringExtra("Response");
-                    Toast toast = Toast.makeText(StartActivity.this , messagePassed, Toast.LENGTH_LONG); //this is the ListActivity
-                    toast.show(); //display your message box
-                }
-            }
 
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 10) {
+            if (resultCode == Activity.RESULT_OK) {
+                Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResult");
+                Toast.makeText(getApplicationContext(), "ListItemsActivity responded " + data.getStringExtra("Response"), Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     protected void onResume() {
