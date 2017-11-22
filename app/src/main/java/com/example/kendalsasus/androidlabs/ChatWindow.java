@@ -13,9 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,6 +24,7 @@ public class ChatWindow extends Activity {
     Button send = null;
     final ArrayList<String> messages = new ArrayList<>();
     private String ACTIVITY_NAME = "ChatWindow";
+    ChatDatabaseHelper cdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,36 +34,33 @@ public class ChatWindow extends Activity {
         editText = findViewById(R.id.text);
         send = findViewById(R.id.send);
 
-        ChatDatabaseHelper cdb = new ChatDatabaseHelper(this);
+        cdb = new ChatDatabaseHelper(this);
         final SQLiteDatabase db = cdb.getWritableDatabase();
 
-        Cursor results = db.rawQuery("SELECT * FROM labTable", null);
+        Cursor results = db.rawQuery("SELECT * FROM " + ChatDatabaseHelper.TABLE_NAME, null);
+
 
         int numResults = results.getCount();
-        int numColumns = results.getColumnCount();
-
-        int messageIndex = results.getColumnIndex("MESSAGE");
-
         String returnedMessage;
-        int arr [] = new int []{R.id.message_layout};
-        //SimpleCursorAdapter adptr = new SimpleCursorAdapter(this, R.layout.activity_chat_window, results, new String[] {"MESSAGE"},arr , 0);
 
-
-
+        results.moveToFirst();
 
         while(!results.isAfterLast() ) {
+
             Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + results.getString(results.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
-            Log.i(ACTIVITY_NAME, "Cursor’s  column count =" + results.getColumnCount() );
             messages.add(results.getString(results.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
             results.moveToNext();
         }
 
-        results.moveToFirst();
+        Log.i(ACTIVITY_NAME, "Cursor's total column count = " + results.getColumnCount());
+
         for(int i = 0; i < numResults; i++) {
-            returnedMessage = results.getString(results.getColumnIndex("MESSAGE"));
-            Log.i("Results:", returnedMessage);
-            results.moveToNext();
+            Log.i(ACTIVITY_NAME, "Cursor's column count= " + results.getColumnIndex(results.getColumnName(i)));
+            Log.i(ACTIVITY_NAME, "Cursor's column name= " + results.getColumnName(i));
+
         }
+
+
 
         final ChatAdapter messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
@@ -78,16 +74,21 @@ public class ChatWindow extends Activity {
                 messages.add(newMessage);
                 messageAdapter.notifyDataSetChanged();
                 ContentValues newData = new ContentValues();
-                newData.put("MESSAGE", newMessage);
+                newData.put(ChatDatabaseHelper.KEY_MESSAGE, newMessage);
 
-                db.insert("labTable", "", newData);
+                db.insert(ChatDatabaseHelper.TABLE_NAME, "", newData);
 
-                Cursor results = db.rawQuery("SELECT * FROM labTable", null);
-
-                int numResults = results.getCount();
             }
         });
 
+
+
+
+
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        cdb.close();
     }
 
 

@@ -10,9 +10,9 @@ import android.util.Log;
  */
 
 public class ChatDatabaseHelper extends SQLiteOpenHelper {
-    public static String DATABASE_NAME;
-    public static int VERSION_NUM = 1;
-    public static String TABLE_NAME = "labTable";
+    public static String DATABASE_NAME = "Filename.db";
+    public static int VERSION_NUM = 4;
+    public final static String TABLE_NAME = "labTable";
     public final static String KEY_ID = "_id";
     public final static String KEY_MESSAGE = "MESSAGE";
 
@@ -24,11 +24,14 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         String sql = "CREATE TABLE " + TABLE_NAME + "( "+ KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_MESSAGE+" varchar);";
         db.execSQL(sql);
+        Log.i("ChatDatabaseHelper", "Calling onCreate SQLiteDatabase");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL("DROP IF TABLE EXISTS "+ TABLE_NAME);
+
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
         onCreate(db);
+        Log.i("ChatDatabaseHelper", "Calling onUpgrade, oldVersion = " + oldVersion + " newVersion = " + newVersion);
     }
     @Override
     public void onOpen(SQLiteDatabase db)
