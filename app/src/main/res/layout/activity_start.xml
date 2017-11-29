@@ -32,9 +32,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
+        android:id="@+id/startChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/startChat"
-        android:text="@string/startChat"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/startChat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/weatherButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginTop="8dp"
+        android:gravity="right"
+        android:text="@string/weatherButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
