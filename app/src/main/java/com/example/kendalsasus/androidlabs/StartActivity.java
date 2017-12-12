@@ -19,6 +19,7 @@ public class StartActivity extends Activity {
        Button button = findViewById(R.id.button);
        Button startChat = findViewById(R.id.startChat);
        Button weather = findViewById(R.id.weatherButton);
+       Button testToolbar = findViewById(R.id.toolbarButton);
 
        startChat.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -47,6 +48,14 @@ public class StartActivity extends Activity {
            public void onClick(View view){
                Intent weatherIntent = new Intent(StartActivity.this, WeatherForecast.class);
                startActivityForResult(weatherIntent, 10);
+           }
+       });
+
+       testToolbar.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent toolbarIntent = new Intent(StartActivity.this, TestToolbar.class);
+               startActivityForResult(toolbarIntent, 10);
            }
        });
 

@@ -20,4 +20,6 @@
     <string name="send">Send</string>
     <string name="weatherButton">Weather</string>
     <string name="title_activity_test_toolbar">TestToolbar</string>
+    <string name="title_activity_tool">tool</string>
+    <string name="title_activity_test">test</string>
 </resources>

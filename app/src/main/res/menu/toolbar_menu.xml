@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.AppCompat.Light">
+    <item
+        android:id="@+id/action_one"
+        android:icon="@drawable/happy"
+        android:iconTint="@android:color/holo_green_dark"
+        android:orderInCategory="100"
+        android:title="One"
+
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_two"
+        android:icon="@drawable/home"
+        android:iconTint="@android:color/holo_green_dark"
+        android:orderInCategory="150"
+        android:title="Two"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_three"
+        android:icon="@drawable/money"
+        android:iconTint="@android:color/holo_green_dark"
+        android:orderInCategory="200"
+        android:title="Three"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_four"
+        android:orderInCategory="200"
+        android:title="About"
+        app:showAsAction="never" />
+
+
+
+</menu>
