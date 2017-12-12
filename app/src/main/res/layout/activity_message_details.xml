@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame"
+        >
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/messageHere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MessageHere"
+            android:layout_alignParentTop="true"
+            android:padding="15dp"/>
+
+        <TextView
+            android:id="@+id/idHere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID="
+            android:padding="15dp"
+            android:layout_below="@id/messageHere"/>
+
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="DELETE THIS MESSAGE"
+            android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>-->
+    </FrameLayout>
+
+
+</LinearLayout>
